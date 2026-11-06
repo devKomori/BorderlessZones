@@ -9,5 +9,5 @@ namespace BorderlessZones;
 /// </summary>
 public partial class App : Application
 {
-       public static string VersionString { get; } = "1.0.0";
+       public static string VersionString { get; } = "1.1.0";
 }

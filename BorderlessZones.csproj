@@ -6,7 +6,11 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
-        <ApplicationIcon>Assets\bz-icon.ico</ApplicationIcon>
+        <ApplicationIcon>Assets\app-icon.ico</ApplicationIcon>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Management" Version="10.0.14" />
+    </ItemGroup>
 
 </Project>

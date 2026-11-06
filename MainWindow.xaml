@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BorderlessZones"
         mc:Ignorable="d"
         Title="BorderlessZones"
-        Height="600"
+        Height="660"
         Width="500"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -14,9 +14,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
         MouseLeftButtonDown="Window_MouseLeftButtonDown">
-
     <Window.Resources>
-
         <!-- CONTROL STYLES -->
         <Style x:Key="TextBoxStyle"
                TargetType="TextBox">
@@ -69,7 +67,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="PrimaryButtonStyle"
                TargetType="Button">
             <Setter Property="Background"
@@ -112,7 +109,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="SecondaryButtonStyle"
                TargetType="Button">
             <Setter Property="Background"
@@ -164,7 +160,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="CheckBoxStyle"
                TargetType="CheckBox">
             <Setter Property="Foreground"
@@ -226,7 +221,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <!-- COMBOBOX STYLE -->
         <Style x:Key="ComboBoxStyle"
                TargetType="ComboBox">
@@ -254,14 +248,12 @@
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     CornerRadius="6"
                                     SnapsToDevicePixels="True"/>
-
                             <!-- Grid layout ensures Arrow is not covered, and Resources add ellipses -->
                             <Grid Margin="12,0,30,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-
                                 <ContentPresenter x:Name="ContentSite"
                                                   Grid.Column="0"
                                                   MaxWidth="400"
@@ -278,7 +270,6 @@
                                         </Style>
                                     </ContentPresenter.Resources>
                                 </ContentPresenter>
-
                                 <Path x:Name="Arrow"
                                       Grid.Column="1"
                                       Fill="#A0B3C8"
@@ -290,7 +281,6 @@
                                       Data="F1 M 301.14,-189.041L 311.57,-189.041L 306.355,-182.942L 301.14,-189.041 Z"
                                       Margin="0,0,-15,0"/>
                             </Grid>
-
                             <!-- ToggleButton to open the dropdown -->
                             <ToggleButton Focusable="False"
                                           IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
@@ -302,7 +292,6 @@
                                     </ControlTemplate>
                                 </ToggleButton.Template>
                             </ToggleButton>
-
                             <!-- Dropdown for the ComboBox -->
                             <Popup x:Name="Popup"
                                    Placement="Bottom"
@@ -317,7 +306,6 @@
                                         BorderThickness="1"
                                         CornerRadius="0,0,6,6"
                                         Margin="0,-1,0,0">
-
                                     <!-- Dropdown scroll viewer -->
                                     <ScrollViewer Margin="4"
                                                   SnapsToDevicePixels="True"
@@ -330,7 +318,6 @@
                                 </Border>
                             </Popup>
                         </Grid>
-
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver"
                                      Value="True">
@@ -372,7 +359,6 @@
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="ComboBoxItem">
-
                                     <Border x:Name="Border"
                                             Background="{TemplateBinding Background}"
                                             CornerRadius="4"
@@ -414,7 +400,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="TitleBarButtonStyle"
                TargetType="Button">
             <Setter Property="Width"
@@ -455,7 +440,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="MinimizeButtonStyle"
                TargetType="Button"
                BasedOn="{StaticResource TitleBarButtonStyle}">
@@ -468,7 +452,6 @@
             <Setter Property="FontSize"
                     Value="12"/>
         </Style>
-
         <Style x:Key="CloseButtonStyle"
                TargetType="Button"
                BasedOn="{StaticResource TitleBarButtonStyle}">
@@ -510,20 +493,17 @@
             </Setter>
         </Style>
     </Window.Resources>
-
     <!-- Root Border for Rounded Application Corners -->
     <Border Background="#0b1622"
             CornerRadius="12"
             BorderBrush="#1e3a5f"
             BorderThickness="1"
             ClipToBounds="True">
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="48"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
             <!-- Title Bar -->
             <Border Grid.Row="0"
                     Background="#0f1f33"
@@ -535,7 +515,6 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-
                     <StackPanel Grid.Column="0"
                                 Orientation="Horizontal"
                                 VerticalAlignment="Center"
@@ -554,7 +533,6 @@
                                    VerticalAlignment="Center"
                                    Margin="10,0,0,0"/>
                     </StackPanel>
-
                     <StackPanel Grid.Column="1"
                                 Orientation="Horizontal">
                         <Button x:Name="minimizeBtn"
@@ -566,30 +544,40 @@
                     </StackPanel>
                 </Grid>
             </Border>
-
             <!-- Main Content -->
             <ScrollViewer Grid.Row="1"
                           VerticalScrollBarVisibility="Auto"
                           Padding="24">
                 <StackPanel>
-
                     <!-- Application Selector -->
                     <TextBlock Text="Target Application"
                                FontSize="13"
                                FontWeight="Medium"
                                Foreground="#A0B3C8"
                                Margin="0,0,0,8"/>
-
                     <ComboBox x:Name="SelectApplicationItem"
                               Style="{StaticResource ComboBoxStyle}"
                               Height="44"
-                              Margin="0,0,0,32"
+                              Margin="0,0,0,24"
                               DropDownOpened="SelectApplicationItem_OnSubmenuOpened">
                         <ComboBoxItem Content="Select Application..."
-                                      Foreground="#A0B3C8"/>
+                                Foreground="#A0B3C8"
+                                ToolTip="Choose the application to apply borderless to"/>
                     </ComboBox>
+                    <!-- Target Monitor: populated from Windows in code-behind -->
+                    <TextBlock Text="Target Monitor"
+                               FontSize="13"
+                               FontWeight="Medium"
+                               Foreground="#A0B3C8"
+                               Margin="0,0,0,8"/>
 
-                    <!-- Zone Configuration Grid -->
+                    <ComboBox x:Name="SelectMonitorItem"
+                              Style="{StaticResource ComboBoxStyle}"
+                              Height="44"
+                              Margin="0,0,0,32"
+                              ToolTip="Choose the display to use for this zone"/>
+
+                    <!-- Zone Configuration -->
                     <TextBlock Text="Zone Configuration"
                                FontSize="13"
                                FontWeight="Medium"
@@ -606,7 +594,6 @@
                             <RowDefinition Height="16"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-
                         <StackPanel Grid.Row="0"
                                     Grid.Column="0">
                             <TextBlock Text="X Offset"
@@ -617,7 +604,6 @@
                                      Style="{StaticResource TextBoxStyle}"
                                      Height="40"/>
                         </StackPanel>
-
                         <StackPanel Grid.Row="0"
                                     Grid.Column="2">
                             <TextBlock Text="Y Offset"
@@ -628,7 +614,6 @@
                                      Style="{StaticResource TextBoxStyle}"
                                      Height="40"/>
                         </StackPanel>
-
                         <StackPanel Grid.Row="2"
                                     Grid.Column="0">
                             <TextBlock Text="Width"
@@ -639,7 +624,6 @@
                                      Style="{StaticResource TextBoxStyle}"
                                      Height="40"/>
                         </StackPanel>
-
                         <StackPanel Grid.Row="2"
                                     Grid.Column="2">
                             <TextBlock Text="Height"
@@ -651,7 +635,6 @@
                                      Height="40"/>
                         </StackPanel>
                     </Grid>
-
                     <!-- Options -->
                     <CheckBox x:Name="HideTaskbarCheckBox"
                               Content="Cover Taskbar"
@@ -660,7 +643,6 @@
                               Margin="0,0,0,24"
                               Checked="CoverTaskbarCheckBox_Checked"
                               Unchecked="CoverTaskbarCheckBox_Unchecked"/>
-
                     <!-- Status Message -->
                     <TextBlock x:Name="StatusTextBlock"
                                Text="This text box displays a message"
@@ -669,7 +651,6 @@
                                TextAlignment="Center"
                                Margin="0,0,0,16"
                                Visibility="Hidden"/>
-
                     <!-- Action Buttons -->
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -677,13 +658,11 @@
                             <ColumnDefinition Width="16"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-
                         <Button x:Name="BorderlessButton"
                                 Click="BorderlessButton_OnClick"
                                 Content="Enable Borderless"
                                 Style="{StaticResource PrimaryButtonStyle}"
                                 Height="44"/>
-
                         <Button x:Name="RestoreButton"
                                 Click="RestoreButton_OnClick"
                                 Content="Restore"
@@ -691,7 +670,6 @@
                                 Grid.Column="2"
                                 Height="44"/>
                     </Grid>
-
                 </StackPanel>
             </ScrollViewer>
         </Grid>
